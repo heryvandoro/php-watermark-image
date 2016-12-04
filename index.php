@@ -21,6 +21,9 @@ $show_image= " ";
 
 if(isset($_POST['process'])){
     $folder = "uploads/";
+    if (!file_exists($folder)) {
+	mkdir($folder, 0755, true);
+    }
     $filetype = array("jpg","bmp","jpeg");
 	$name = $_FILES['images']['name'];
 	if(strlen($name)){
